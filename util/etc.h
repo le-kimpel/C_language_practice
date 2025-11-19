@@ -1,1 +1,1 @@
-pidt_t loc_process(char *name);
+pid_t loc_process(char *name);

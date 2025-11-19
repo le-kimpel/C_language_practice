@@ -4,14 +4,14 @@
 #include <unistd.h>
 #include <sys/user.h>
 #include <wait.h>
-#include "inject.h"
+#include "../util/etc.h"
 
 /* Locate a process by name, extract the PID, then use ptrace to overwrite the memory location we have identified and then restore the registers once we decide to nope outta there. Makes use of DL_OPEN to load all the libraries we want.*/ 
 void inject(long addr, long free_addr, long dlopen_addr)
 {
   // nothing to be done yet
 }
-
+/*
 int procfs_proc_mem_write(long address, long pid, const char *payload)
 {
 
@@ -48,7 +48,7 @@ int procfs_proc_mem_exec(long address, long pid)
   fclose(file);
   return 0;
 }
-
+*/
 
 int main(int argc, char **argv)
 {
