@@ -1,16 +1,14 @@
-CC := gcc
-CFLAGS := -Wall
+CC = clang
+CFLAGS = -std=gnu99 -ggdb
+UNAME_M := $(shell uname -m)
 
-# src
-SRC := $(src/*.c)
-OBJ := $(SRC:.c=.o)
+little_fella.so:
+	$(CC) $(CFLAGS) -D_GNU_SOURCE -shared -o little_fella.so -fPIC so/little_fella.c
 
-TARGETS := target
+target:
+	$(CC) $(CFLAGS) -o target src/target.c
 
-%: %.c $(OBJ)
-	$(CC) $(CFLAGS) $^ -o $@
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o $(TARGETS)
+	rm -f target
+	rm -f little_fella.so
