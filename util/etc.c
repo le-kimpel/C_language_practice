@@ -4,6 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <dlfcn.h> // for loading reasons
+#include "etc.h"
 
 /* Note it's probably more efficient and reasonable to do this in Python. However my C skills are rusty and I need to keep in shape. Parses /proc/ pseudofilesystem for the PID associated with a particular process name. */
 pid_t loc_process(char *target){
