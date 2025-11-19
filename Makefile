@@ -2,12 +2,15 @@ CC := gcc
 CFLAGS := -Wall
 
 # src
-SRC := $(*.c)
+SRC := $(src/*.c)
 OBJ := $(SRC:.c=.o)
 
 TARGETS := target
 
-all: $(TARGETS)
+%: %.c $(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f *.o $(TARGETS)
