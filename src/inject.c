@@ -6,7 +6,9 @@
 #include <wait.h>
 #include "../util/etc.h"
 
-/* Locate a process by name, extract the PID, then use ptrace to overwrite the memory location we have identified and then restore the registers once we decide to nope outta there. Makes use of DL_OPEN to load all the libraries we want.*/ 
+/* Locate a process by name, extract the PID, then use ptrace to overwrite
+ the memory location we have identified and then restore
+ the registers once we decide to nope outta there. Makes use of DL_OPEN to load all the libraries we want.*/ 
 void inject(long addr, long free_addr, long dlopen_addr)
 {
   // nothing to be done yet
